@@ -1,0 +1,18 @@
+nameOverride: "prometheus"
+namespaceOverride: "monitoring"
+prometheus:
+  prometheusSpec:
+    storageSpec:
+      image:
+        registry: quay.io
+        repository: prometheus/prometheus
+        tag: v3.7.1
+        sha: ""
+        pullPolicy: IfNotPresent
+      volumeClaimTemplate:
+        spec:
+          storageClassName: gluster
+          accessModes: ["ReadWriteOnce"]
+          resources:
+            requests:
+              storage: 50Gi
