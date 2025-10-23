@@ -1,14 +1,16 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: root-app
+  name: argocd-bootstrap
   namespace: argocd
 spec:
   project: root-project
   source:
     repoURL: https://github.com/hhunng/deployment-manifest.git
     targetRevision: HEAD
-    path: argocd-apps
+    path: bootstrap
+    directory:
+      recurse: true
   destination:
     server: https://kubernetes.default.svc
     namespace: argocd
