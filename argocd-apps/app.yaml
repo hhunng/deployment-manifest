@@ -15,8 +15,8 @@ spec:
     helm:
       releaseName: prometheus
       parameters:
-        - name: "prometheus.prometheusSpec.storageSpec.image.tag"
-          value: "v3.7.1"
+        - name: "prometheus.prometheusSpec.image.tag"
+          value: "v3.7.2"
       valueFiles:
         - $values/monitoring-tools/prometheus.yaml
   - repoURL: 'https://github.com/hhunng/deployment-manifest.git'
